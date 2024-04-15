@@ -8,7 +8,7 @@ interface InputProps{
 
 const Input: React.FC<InputProps> = ({newTodo, setNewTodo, handleEnter}) => {
   return (
-    <div className='flex p-2 bg-white dark:bg-[#34414a] rounded-md mt-2'>
+    <div className='flex p-2 bg-white dark:bg-[#34414a] rounded-md mt-2 mb-4'>
       <span className='text-3xl mx-2 text-[#d9e1ea] dark:text-[#475c68]'>○</span>
       
       <input 

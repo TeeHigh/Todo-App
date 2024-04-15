@@ -68,7 +68,7 @@ const App: React.FC = () => {
         <Body>
           <Header setDarkMode={addDarkMode} setLightMode={addLightMode} />
           <Input newTodo={newTodo} setNewTodo={setNewTodo} handleEnter={handleEnter} />
-          <TodoList navLinks={navLinks} />
+          <TodoList navLinks={navLinks} todoList={todoList} setTodoList={setTodoList} />
           <NavBar navLinks={navLinks} />
         </Body>
       </div>
