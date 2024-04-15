@@ -3,9 +3,16 @@ import Background from "./components/Background"
 import Body from "./components/Body"
 import Header from "./components/Header";
 import Input from "./components/Input";
+import NavBar from "./components/NavBar";
+import TodoList from "./components/TodoList";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || '')
+  const [newTodo, setNewTodo] = useState('')
+
+  const navLinks: string[] = [
+    'All', 'Active', 'Completed'
+  ]
 
   useEffect(function () {
     localStorage.setItem('theme', theme)
@@ -31,7 +38,9 @@ function App() {
         <Background />
         <Body>
           <Header setDarkMode={addDarkMode} setLightMode={addLightMode} />
-          <Input/>
+          <Input newTodo={newTodo} setNewTodo={setNewTodo} />
+          <TodoList navLinks={navLinks} />
+          <NavBar navLinks={navLinks} />
         </Body>
       </div>
     </>
