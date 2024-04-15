@@ -20,15 +20,15 @@ export default function Background() {
       </div>
 
       {/* --------------- darkmode background images --------------- */}
-      <div className="darkmode-bg hidden dark:block">
+      <div className="hidden dark:block">
         <img
-          className="md:hidden  w-full"
+          className="lg:hidden  w-full"
           src="./src/assets/bg-mobile-dark.jpg"
           alt="background image"
         />
         {/* desktop screen dark background image */}
         <img
-          className="hidden md:block w-full"
+          className="hidden lg:block w-full"
           src="./src/assets/bg-desktop-dark.jpg"
           alt="background image"
         />
