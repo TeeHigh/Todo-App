@@ -1,4 +1,4 @@
-import { ReactSortable } from "react-sortablejs"
+import { useState } from "react";
 import TodoListItems from "./TodoListItems";
 
 interface TodoListProps{
@@ -8,23 +8,32 @@ interface TodoListProps{
     newTodo: string,
     completed: boolean
   }[],
-  setTodoList: () => void;
+  setTodoList: React.Dispatch<React.SetStateAction<{
+    id: string | number;
+    newTodo: string;
+    completed: boolean;
+  }[]>>,
+  deleteTodoItem: (id: string | number) => void
 }
 
-const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList}) => {
+const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList, deleteTodoItem}) => {
+  const [remainingItems, setRemainingItems] = useState(0)
+
   return (
     <div className="bg-slate-400 dark:bg-[#34414a] rounded-md mb-8 " >
       <div className="bg-white dark:bg-[#34414a] items-center align-middle  justify-center border-b-2 dark:border-b-slate-600">
         {
-          todoList 
+          todoList.length === 0
           ?
-          <TodoListItems todoList={todoList} setTodoList={setTodoList}/>
+          <p className="py-2 text-[#9394a5] hover:text-black dark:text-[#fafafa]">
+            You don't have any tasks
+          </p>
           :
-          <p className="h-12">You don't have any tasks</p>
+          <TodoListItems todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem}/>
           }
       </div>
       <span className='flex justify-between p-4 h-10 bg-white dark:bg-[#34414a] align-middle items-center rounded-b-md' >
-        <p className="text-[#9394a5] hover:text-black dark:text-[#8799a8] ">X items left</p>
+        <p className="text-[#9394a5] hover:text-black dark:text-[#8799a8] ">{todoList.length} item{todoList.length === 1 ? '' : 's'} left</p>
         <div className="gap-3 hidden md:flex">
           {
             navLinks.map((navLink) => (

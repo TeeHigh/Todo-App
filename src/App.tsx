@@ -54,11 +54,20 @@ const App: React.FC = () => {
       setNewTodo('')
     }
   }
+
+  //function to delete a task from the todo list
+  function deleteTodoItem(id: string | number){
+    setTodoList((prev) => prev.filter((task)=> task.id !== id)) //leaves only objects whose id don't correlate
+  }
   
   const handleEnter: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if(e.key === "Enter"){
+    if(e.key === "Enter" ){
       addNewTodoItem()
     }
+  }
+
+  function handleClick(){
+    addNewTodoItem();
   }
 
   return (
@@ -67,8 +76,8 @@ const App: React.FC = () => {
         <Background />
         <Body>
           <Header setDarkMode={addDarkMode} setLightMode={addLightMode} />
-          <Input newTodo={newTodo} setNewTodo={setNewTodo} handleEnter={handleEnter} />
-          <TodoList navLinks={navLinks} todoList={todoList} setTodoList={setTodoList} />
+          <Input newTodo={newTodo} setNewTodo={setNewTodo} handleEnter={handleEnter} handleClick={handleClick} />
+          <TodoList navLinks={navLinks} todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem} />
           <NavBar navLinks={navLinks} />
         </Body>
       </div>

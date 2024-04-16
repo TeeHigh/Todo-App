@@ -4,12 +4,18 @@ interface InputProps{
   newTodo: string,
   setNewTodo: (newValue: string) => void;
   handleEnter: React.KeyboardEventHandler<HTMLInputElement>;
+  handleClick: () => void;
 }
 
-const Input: React.FC<InputProps> = ({newTodo, setNewTodo, handleEnter}) => {
+const Input: React.FC<InputProps> = ({newTodo, setNewTodo, handleEnter, handleClick}) => {
   return (
     <div className='flex p-2 bg-white dark:bg-[#34414a] rounded-md mt-2 mb-4'>
-      <span className='text-3xl mx-2 text-[#d9e1ea] dark:text-[#475c68]'>○</span>
+      <div 
+        className="h-6 w-6 bg-transparent border-[#d9e1ea] dark:border-[#475c68] dark:hover:border-[#a7abae] border-2 rounded-full flex items-center justify-center mx-2 cursor-pointer"
+        onClick={handleClick}
+      >
+        
+      </div>
       
       <input 
         type="text" 
@@ -19,7 +25,7 @@ const Input: React.FC<InputProps> = ({newTodo, setNewTodo, handleEnter}) => {
         onChange={(e) => setNewTodo(e.target.value)}
         onKeyDown={handleEnter}
       />
-      {/* <img src="./src/assets/icon-cross.svg" alt="delete icon" /> */}
+      
     </div>
   )
 }
