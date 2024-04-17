@@ -9,7 +9,7 @@ interface InputProps{
 
 const Input: React.FC<InputProps> = ({newTodo, setNewTodo, handleEnter, handleClick}) => {
   return (
-    <div className='flex p-2 bg-white dark:bg-[#34414a] rounded-md mt-2 mb-4'>
+    <div className='flex p-2 bg-white dark:bg-[#34414a] rounded-md mt-2 mb-4 lg:mb-8 lg:py-4'>
       <div 
         className="h-6 w-6 bg-transparent border-[#d9e1ea] dark:border-[#475c68] dark:hover:border-[#a7abae] border-2 rounded-full flex items-center justify-center mx-2 cursor-pointer"
         onClick={handleClick}

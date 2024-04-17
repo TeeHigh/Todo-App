@@ -7,7 +7,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ setDarkMode, setLightMode }) => {
   return (
-    <header className='flex justify-between align-middle mb-8 md:mb-4'>
+    <header className='flex justify-between align-middle mb-8 md:mb-6 lg:mb-14'>
       <h1 className='text-[2.4em] font-bold tracking-[10px] text-white cursor-pointer'>TODO</h1>
       <span className="toggle-btn self-center cursor-pointer hover:bg-[rgba(10,10,10,0.2)] p-1 rounded-full active:scale-95">
         <p className='dark:hidden'>

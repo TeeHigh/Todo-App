@@ -79,6 +79,7 @@ const App: React.FC = () => {
           <Input newTodo={newTodo} setNewTodo={setNewTodo} handleEnter={handleEnter} handleClick={handleClick} />
           <TodoList navLinks={navLinks} todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem} />
           <NavBar navLinks={navLinks} />
+          {todoList.length > 1 && <p className="text-[#9394a5] mt-6">Drag and drop to reorder list</p>}
         </Body>
       </div>
     </>

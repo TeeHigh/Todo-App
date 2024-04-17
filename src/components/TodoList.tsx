@@ -17,6 +17,7 @@ interface TodoListProps{
 
 const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList, deleteTodoItem}) => {
   const remainingItems = todoList.filter((item) => item.completed !== true).length
+  const completedItems = todoList.filter((item) => item.completed === true).length
 
   function clearCompleted(){
     setTodoList((prev) => prev.filter((item) => item.completed === false))
@@ -44,7 +45,7 @@ const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList, del
             ))
           }
         </div>
-        <button className="cursor-pointer text-[#9394a5] hover:text-black dark:text-[#8799a8] dark:hover:text-white">Clear completed</button>
+        <button className={` text-[#9394a5] dark:text-[#8799a8] ${completedItems ? 'hover:text-black dark:hover:text-white cursor-pointer' : 'cursor-not-allowed'}`} onClick={clearCompleted}>Clear completed</button>
       </span>
     </div>
   )
