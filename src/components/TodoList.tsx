@@ -1,4 +1,3 @@
-import { useState } from "react";
 import TodoListItems from "./TodoListItems";
 
 interface TodoListProps{
@@ -17,7 +16,11 @@ interface TodoListProps{
 }
 
 const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList, deleteTodoItem}) => {
-  const [remainingItems, setRemainingItems] = useState(0)
+  const remainingItems = todoList.filter((item) => item.completed !== true).length
+
+  function clearCompleted(){
+    setTodoList((prev) => prev.filter((item) => item.completed === false))
+  }
 
   return (
     <div className="bg-slate-400 dark:bg-[#34414a] rounded-md mb-8 " >
@@ -25,7 +28,7 @@ const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList, del
         {
           todoList.length === 0
           ?
-          <p className="py-2 text-[#9394a5] hover:text-black dark:text-[#fafafa]">
+          <p className="py-2 text-[#62636d] dark:text-[#fafafa]">
             You don't have any tasks
           </p>
           :
@@ -33,7 +36,7 @@ const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList, del
           }
       </div>
       <span className='flex justify-between p-4 h-10 bg-white dark:bg-[#34414a] align-middle items-center rounded-b-md' >
-        <p className="text-[#9394a5] hover:text-black dark:text-[#8799a8] ">{todoList.length} item{todoList.length === 1 ? '' : 's'} left</p>
+        <p className="text-[#9394a5] hover:text-black dark:text-[#8799a8] ">{remainingItems} item{remainingItems === 1 ? '' : 's'} left</p>
         <div className="gap-3 hidden md:flex">
           {
             navLinks.map((navLink) => (
