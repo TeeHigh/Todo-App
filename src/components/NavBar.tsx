@@ -1,15 +1,19 @@
 import React from "react"
 
-interface NavBarProps{
-  navLinks: string[]
+interface NavBarProps {
+  navLinks: string[],
+  currentTab: string,
+  setCurrentTab: (newValue: string) => void;
 }
 
-const NavBar: React.FC<NavBarProps> = ({navLinks}) => {
+const NavBar: React.FC<NavBarProps> = ({ navLinks, setCurrentTab, currentTab }) => {
   return (
     <>
       {
         navLinks.map((navLink) => (
-          <p className='cursor-pointer text-[#9394a5] hover:text-black dark:text-[#8799a8] dark:hover:text-white' key={navLink}>{navLink}</p>
+          <p key={navLink} onClick={() => setCurrentTab(navLink.toLowerCase())} className={`cursor-pointer  ${currentTab === navLink.toLowerCase() ? 'text-blue' : 'text-[#9394a5] hover:text-black dark:text-[#8799a8] dark:hover:text-white' } `} >
+            {navLink}
+          </p>
         ))
       }
     </>

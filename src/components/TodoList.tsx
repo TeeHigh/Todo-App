@@ -1,8 +1,10 @@
 import TodoListItems from "./TodoListItems";
-import NavBar from "./NavBar";
+import ActiveListItems from "./ActiveListItems";
+import CompletedListItems from "./CompletedListItems";
+import { ReactNode } from "react";
 
 interface TodoListProps{
-  navLinks: string[],
+  currentTab: string,
   todoList: {
     id: string|number,
     newTodo: string,
@@ -13,10 +15,11 @@ interface TodoListProps{
     newTodo: string;
     completed: boolean;
   }[]>>,
-  deleteTodoItem: (id: string | number) => void
+  deleteTodoItem: (id: string | number) => void,
+  children: ReactNode
 }
 
-const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList, deleteTodoItem}) => {
+const TodoList: React.FC<TodoListProps> = ({currentTab, todoList, setTodoList, deleteTodoItem, children}) => {
   const remainingItems = todoList.filter((item) => item.completed !== true).length
   const completedItems = todoList.filter((item) => item.completed === true).length
 
@@ -34,13 +37,17 @@ const TodoList: React.FC<TodoListProps> = ({navLinks, todoList, setTodoList, del
             You don't have any tasks
           </p>
           :
-          <TodoListItems todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem}/>
+          <>
+            {currentTab === 'all' && <TodoListItems todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem}/>}
+            {currentTab === 'active' && <ActiveListItems todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem}/>}
+            {currentTab === 'completed' && <CompletedListItems todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem}/>}
+          </>
           }
       </div>
       <span className='flex justify-between p-4 h-10 bg-white dark:bg-[#25273c] align-middle items-center rounded-b-md' >
         <p className="text-[#9394a5] hover:text-black dark:text-[#8799a8] ">{remainingItems} item{remainingItems === 1 ? '' : 's'} left</p>
-        <div className="gap-3 hidden md:flex font-bold">
-          <NavBar navLinks={navLinks}/>
+        <div className="gap-7 hidden md:flex font-bold">
+          {children}
         </div>
         <button className={` text-[#9394a5] dark:text-[#8799a8] ${completedItems ? 'hover:text-black dark:hover:text-white cursor-pointer' : 'cursor-not-allowed'}`} onClick={clearCompleted}>Clear completed</button>
       </span>

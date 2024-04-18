@@ -4,9 +4,15 @@ import Background from "./components/Background"
 import Body from "./components/Body"
 import Header from "./components/Header";
 import Input from "./components/Input";
-import NavBar from "./components/NavBar";
 import TodoList from "./components/TodoList";
 import BottomNav from "./components/BottomNav";
+import NavBar from "./components/NavBar";
+
+enum TabStatus{
+  ALL = 'all',
+  ACTIVE = 'active',
+  COMPLETED = 'completed'
+}
 
 interface Todo {
   id: number | string;
@@ -14,9 +20,11 @@ interface Todo {
   completed: boolean;
 }
 
+
 const App: React.FC = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || '')
   const [newTodo, setNewTodo] = useState('')
+  const [currentTab, setCurrentTab] = useState(`${TabStatus.ALL}`)
   const [todoList, setTodoList] = useState<Todo[]>([])
 
   const navLinks: string[] = [
@@ -26,10 +34,10 @@ const App: React.FC = () => {
   // effect to handle color theme
   useEffect(function () {
     localStorage.setItem('theme', theme)
-    
+
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark')
-    } 
+    }
     else {
       document.documentElement.classList.remove('dark')
     }
@@ -44,30 +52,30 @@ const App: React.FC = () => {
   }
 
   //function to create new todo object 
-  function addNewTodoItem(){
+  function addNewTodoItem() {
     const newItem: Todo = {
       id: nanoid(),
       newTodo,
       completed: false
     }
-    if (newTodo){
-      setTodoList((prev) => [...prev, newItem] )
+    if (newTodo) {
+      setTodoList((prev) => [...prev, newItem])
       setNewTodo('')
     }
   }
 
   //function to delete a task from the todo list
-  function deleteTodoItem(id: string | number){
-    setTodoList((prev) => prev.filter((task)=> task.id !== id)) //leaves only objects whose id don't correlate
+  function deleteTodoItem(id: string | number) {
+    setTodoList((prev) => prev.filter((task) => task.id !== id)) //leaves only objects whose id don't correlate
   }
-  
+
   const handleEnter: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if(e.key === "Enter" ){
+    if (e.key === "Enter") {
       addNewTodoItem()
     }
   }
 
-  function handleClick(){
+  function handleClick() {
     addNewTodoItem();
   }
 
@@ -78,10 +86,21 @@ const App: React.FC = () => {
         <Body>
           <Header setDarkMode={addDarkMode} setLightMode={addLightMode} />
           <Input newTodo={newTodo} setNewTodo={setNewTodo} handleEnter={handleEnter} handleClick={handleClick} />
-          <TodoList navLinks={navLinks} todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem} />
-          {/* <NavBar navLinks={navLinks} /> */}
-          <BottomNav navLinks={navLinks} />
-          {todoList.length > 1 && <p className="text-[#9394a5] mt-6">Drag and drop to reorder list</p>}
+          
+          <TodoList  
+            todoList={todoList} 
+            setTodoList={setTodoList} 
+            deleteTodoItem={deleteTodoItem}
+            currentTab={currentTab}
+          >
+            <NavBar navLinks={navLinks} currentTab={currentTab} setCurrentTab={setCurrentTab}/>
+          </TodoList>
+
+          <BottomNav>
+            <NavBar navLinks={navLinks} currentTab={currentTab} setCurrentTab={setCurrentTab}/>
+          </BottomNav>
+
+          {todoList.length > 1 && currentTab === 'all' && <p className="text-[#9394a5] mt-6">Drag and drop to reorder list</p>}
         </Body>
       </div>
     </>
