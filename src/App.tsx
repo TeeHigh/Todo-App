@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Input from "./components/Input";
 import NavBar from "./components/NavBar";
 import TodoList from "./components/TodoList";
+import BottomNav from "./components/BottomNav";
 
 interface Todo {
   id: number | string;
@@ -78,7 +79,8 @@ const App: React.FC = () => {
           <Header setDarkMode={addDarkMode} setLightMode={addLightMode} />
           <Input newTodo={newTodo} setNewTodo={setNewTodo} handleEnter={handleEnter} handleClick={handleClick} />
           <TodoList navLinks={navLinks} todoList={todoList} setTodoList={setTodoList} deleteTodoItem={deleteTodoItem} />
-          <NavBar navLinks={navLinks} />
+          {/* <NavBar navLinks={navLinks} /> */}
+          <BottomNav navLinks={navLinks} />
           {todoList.length > 1 && <p className="text-[#9394a5] mt-6">Drag and drop to reorder list</p>}
         </Body>
       </div>

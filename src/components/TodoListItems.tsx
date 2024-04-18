@@ -27,12 +27,12 @@ const TodoListItems: React.FC<TodoListItemsProps> = ({ todoList, setTodoList, de
   }
 
   return (
-    <ReactSortable list={todoList} setList={setTodoList} delay={1} >
+    <ReactSortable list={todoList} setList={setTodoList} >
       {todoList.map((task) => (
-        <div key={task.id} className="flex px-2 pr-4 py-4 border-b-2 dark:border-b-slate-600 cursor-grab items-center">
-          <div className="h-6 w-6 p-[0.5px] rounded-full mx-2 bg-[#d9e1ea] dark:bg-transparent dark:border-[#475c68] dark:border-2 dark:hover:border-0 hover:bg-gradient-to-r from-[#57ddff] to-[#c058f3] dark:p-[0.1px] flex items-center justify-center">
+        <div key={task.id} className="flex px-2 pr-4 py-4 dark:bg-[#25273c] lg:py-5 border-b-2 dark:border-b-slate-600 cursor-grab items-center">
+          <div className="h-6 w-6 p-[0.5px] rounded-full mx-2 bg-[#d9e1ea] dark:bg-transparent dark:border-[#475c68] dark:border-2 dark:hover:border-0 hover:bg-gradient-to-tr from-[#57ddff] to-[#c058f3] dark:p-[0.1px] flex items-center justify-center">
             <div
-              className={`h-[90%] w-[90%] bg-white dark:bg-[#34414a] rounded-full flex items-center justify-center cursor-pointer ${task.completed ? 'bg-gradient-to-tr from-[#57ddff] to-[#c058f3] ' : ''} `}
+              className={`h-[90%] w-[90%] bg-white dark:bg-[#25273c] rounded-full flex items-center justify-center cursor-pointer ${task.completed ? 'bg-gradient-to-tr from-[#57ddff] to-[#c058f3] ' : ''} `}
               onClick={() => markComplete(task.id)}
             >
               {task.completed === true &&
@@ -43,7 +43,7 @@ const TodoListItems: React.FC<TodoListItemsProps> = ({ todoList, setTodoList, de
             </div>
           </div>
           <p
-            className={`dark:text-[#e4e5f1] ml-2 ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : ''}`}
+            className={` ml-2 ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
           >
             {task.newTodo}
           </p>
@@ -54,7 +54,7 @@ const TodoListItems: React.FC<TodoListItemsProps> = ({ todoList, setTodoList, de
               height="18"
             >
               <path
-                fill={darkMode ? '#eff4f9' : '#9394a5'}
+                fill={darkMode ? '#606c80' : '#9394a5'}
                 fillRule="evenodd"
                 d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"
               />

@@ -29,7 +29,7 @@ The designs were created to the following widths:
 ### Dark Theme
 
 - Very Dark Blue: hsl(235, 21%, 11%) / #161722
-- Very Dark Desaturated Blue: hsl(235, 24%, 19%) / #1b1d23
+- Very Dark Desaturated Blue: hsl(235, 24%, 19%) / #25273c
 - Light Grayish Blue: hsl(234, 39%, 85%) / #d9e1ea
 - Light Grayish Blue (hover): hsl(236, 33%, 92%) / #eff4f9
 - Dark Grayish Blue: hsl(234, 11%, 52%)  / #8799a8
