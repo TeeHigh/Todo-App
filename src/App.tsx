@@ -20,7 +20,6 @@ interface Todo {
   completed: boolean;
 }
 
-
 const App: React.FC = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || '')
   const [newTodo, setNewTodo] = useState('')
