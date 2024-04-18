@@ -9,9 +9,9 @@ import BottomNav from "./components/BottomNav";
 import NavBar from "./components/NavBar";
 
 enum TabStatus{
-  ALL = 'all',
-  ACTIVE = 'active',
-  COMPLETED = 'completed'
+  ALL = 'All',
+  ACTIVE = 'Active',
+  COMPLETED = 'Completed'
 }
 
 interface Todo {
@@ -23,11 +23,11 @@ interface Todo {
 const App: React.FC = () => {
   const [theme, setTheme] = useState(localStorage.getItem('theme') || '')
   const [newTodo, setNewTodo] = useState('')
-  const [currentTab, setCurrentTab] = useState(`${TabStatus.ALL}`)
-  const [todoList, setTodoList] = useState<Todo[]>([])
+  const [currentTab, setCurrentTab] = useState(`${TabStatus.ALL.toLowerCase()}`)
+  const [todoList, setTodoList] = useState<Todo[]>(JSON.parse(localStorage.getItem('todoList')) || [])
 
-  const navLinks: string[] = [
-    'All', 'Active', 'Completed'
+  const navLinks: TabStatus[] = [
+    TabStatus.ALL, TabStatus.ACTIVE, TabStatus.COMPLETED
   ]
 
   // effect to handle color theme
@@ -41,6 +41,10 @@ const App: React.FC = () => {
       document.documentElement.classList.remove('dark')
     }
   }, [theme])
+
+  useEffect(()=>{
+    localStorage.setItem('todoList', JSON.stringify(todoList))
+  }, [todoList])
 
   //functions to set color theme to light mode and dark mode 
   function addDarkMode() {
