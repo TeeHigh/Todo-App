@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import { ReactSortable } from "react-sortablejs"
 
 interface CompletedListItemsProps {
   todoList: {
@@ -28,7 +27,7 @@ const CompletedListItems: FC<CompletedListItemsProps> = ({ todoList, setTodoList
   }
 
   return (
-    <ReactSortable list={todoList} setList={setTodoList} >
+    <div>
       {
         todoList.map((item) => item.completed).length === 0 ?
           <p className="py-4 text-[#62636d] dark:text-[#fafafa]">
@@ -36,7 +35,7 @@ const CompletedListItems: FC<CompletedListItemsProps> = ({ todoList, setTodoList
           </p>
           :
           todoList.filter((item) => item.completed).map((task) => (
-            <div key={task.id} className="flex px-2 pr-4 py-4 dark:bg-[#25273c] lg:py-5 border-b-2 dark:border-b-slate-600 cursor-grab items-center">
+            <div key={task.id} className="flex px-2 pr-4 py-4 dark:bg-[#25273c] lg:py-5 border-b-2 dark:border-b-slate-600 cursor-default items-center">
               <div className="h-6 w-6 p-[0.5px] rounded-full mx-2 bg-[#d9e1ea] dark:bg-transparent dark:border-[#475c68] dark:border-2 dark:hover:border-0 hover:bg-gradient-to-tr from-[#57ddff] to-[#c058f3] dark:p-[0.1px] flex items-center justify-center">
                 <div
                   className={`h-[90%] w-[90%] bg-white dark:bg-[#25273c] rounded-full flex items-center justify-center cursor-pointer ${task.completed ? 'bg-gradient-to-tr from-[#57ddff] to-[#c058f3] ' : ''} `}
@@ -69,7 +68,7 @@ const CompletedListItems: FC<CompletedListItemsProps> = ({ todoList, setTodoList
               </div>
             </div>)
           )}
-    </ReactSortable>
+    </div>
   )
 }
 

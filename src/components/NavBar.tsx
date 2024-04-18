@@ -11,7 +11,7 @@ const NavBar: React.FC<NavBarProps> = ({ navLinks, setCurrentTab, currentTab }) 
     <>
       {
         navLinks.map((navLink) => (
-          <p key={navLink} onClick={() => setCurrentTab(navLink.toLowerCase())} className={`cursor-pointer  ${currentTab === navLink.toLowerCase() ? 'text-blue' : 'text-[#9394a5] hover:text-black dark:text-[#8799a8] dark:hover:text-white' } `} >
+          <p key={navLink} onClick={() => setCurrentTab(navLink.toLowerCase())} className={`cursor-pointer  ${currentTab === navLink.toLowerCase() ? 'text-[#3a7bfd]' : 'text-[#9394a5] hover:text-black dark:text-[#8799a8] dark:hover:text-white' } `} >
             {navLink}
           </p>
         ))
