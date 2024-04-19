@@ -20,7 +20,7 @@ const CompletedListItems: FC<CompletedListItemsProps> = ({ todoList, setTodoList
 
   function markComplete(id: string | number) {
     setTodoList(
-      (prev) => prev.map((listItem) => (
+      (item) => item.map((listItem) => (
         listItem.id === id ? { ...listItem, completed: !listItem.completed } : listItem
       ))
     )

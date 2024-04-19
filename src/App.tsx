@@ -21,7 +21,7 @@ interface Todo {
 }
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme'))
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || '')
   const [newTodo, setNewTodo] = useState('')
   const [currentTab, setCurrentTab] = useState(`${TabStatus.ALL.toLowerCase()}`)
   // @ts-ignore
@@ -33,7 +33,7 @@ const App: React.FC = () => {
 
   // effect to handle color theme
   useEffect(function () {
-    localStorage.setItem('theme', JSON.stringify(theme))
+    localStorage.setItem('theme', theme)
 
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark')
