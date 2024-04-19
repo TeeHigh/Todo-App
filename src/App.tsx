@@ -21,10 +21,11 @@ interface Todo {
 }
 
 const App: React.FC = () => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || '')
+  const [theme, setTheme] = useState(localStorage.getItem('theme'))
   const [newTodo, setNewTodo] = useState('')
   const [currentTab, setCurrentTab] = useState(`${TabStatus.ALL.toLowerCase()}`)
-  const [todoList, setTodoList] = useState<Todo[]>(JSON.parse(localStorage.getItem('todoList')) || [])
+  // @ts-ignore
+  const [todoList, setTodoList] = useState<Todo[]>(JSON.parse(localStorage.getItem('todoList')))
 
   const navLinks: TabStatus[] = [
     TabStatus.ALL, TabStatus.ACTIVE, TabStatus.COMPLETED
@@ -32,7 +33,7 @@ const App: React.FC = () => {
 
   // effect to handle color theme
   useEffect(function () {
-    localStorage.setItem('theme', theme)
+    localStorage.setItem('theme', JSON.stringify(theme))
 
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark')
