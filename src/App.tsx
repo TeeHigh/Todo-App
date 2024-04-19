@@ -27,8 +27,6 @@ const App: React.FC = () => {
   // @ts-ignore
   const [todoList, setTodoList] = useState<Todo[]>(JSON.parse(localStorage.getItem('todoList')) || [])
 
-  console.log(todoList)
-
   const navLinks: TabStatus[] = [
     TabStatus.ALL, TabStatus.ACTIVE, TabStatus.COMPLETED
   ]
