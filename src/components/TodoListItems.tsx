@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ReactSortable } from "react-sortablejs"
 
 interface TodoListItemsProps {
