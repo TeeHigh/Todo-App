@@ -25,7 +25,9 @@ const App: React.FC = () => {
   const [newTodo, setNewTodo] = useState('')
   const [currentTab, setCurrentTab] = useState(`${TabStatus.ALL.toLowerCase()}`)
   // @ts-ignore
-  const [todoList, setTodoList] = useState<Todo[]>(JSON.parse(localStorage.getItem('todoList')))
+  const [todoList, setTodoList] = useState<Todo[]>(JSON.parse(localStorage.getItem('todoList')) || [])
+
+  console.log(todoList)
 
   const navLinks: TabStatus[] = [
     TabStatus.ALL, TabStatus.ACTIVE, TabStatus.COMPLETED
