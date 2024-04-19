@@ -23,13 +23,13 @@ export default function Background() {
       <div className="hidden dark:block">
         <img
           className="lg:hidden  w-full"
-          src="./src/assets/bg-mobile-dark.jpg"
+          src="/assets/bg-mobile-dark.jpg"
           alt="background image"
         />
         {/* desktop screen dark background image */}
         <img
           className="hidden lg:block w-full"
-          src="./src/assets/bg-desktop-dark.jpg"
+          src="/assets/bg-desktop-dark.jpg"
           alt="background image"
         />
       </div>
