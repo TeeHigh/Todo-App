@@ -43,7 +43,7 @@ const TodoListItems: React.FC<TodoListItemsProps> = ({ todoList, setTodoList, de
             </div>
           </div>
           <p
-            className={` ml-2 ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
+            className={`w-10/12 text-wrap text-left ml-2 ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
           >
             {task.newTodo}
           </p>
