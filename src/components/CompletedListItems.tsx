@@ -48,11 +48,16 @@ const CompletedListItems: FC<CompletedListItemsProps> = ({ todoList, setTodoList
                   }
                 </div>
               </div>
-              <p
-                className={` ml-2 ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
-              >
-                {task.newTodo}
-              </p>
+              
+              {/*Todo list items text */}
+              <div className={`w-10/12 ml-2 `}>
+                <p
+                  className={`w-max text-wrap text-left cursor-pointer ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
+                  onClick={() => markComplete(task.id)}
+                >
+                  {task.newTodo}
+                </p>
+              </div>
               <div className="cursor-pointer ml-auto h-5 w-5" onClick={() => deleteTodoItem(task.id)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
