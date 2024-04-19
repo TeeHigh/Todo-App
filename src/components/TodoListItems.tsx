@@ -33,7 +33,7 @@ const TodoListItems: React.FC<TodoListItemsProps> = ({ todoList, setTodoList, de
 
           {/* Check button */}
           <div 
-            className="h-6 w-6 p-[0.5px] rounded-full mx-2 bg-[#d9e1ea] dark:bg-transparent dark:border-[#475c68] dark:border-2 dark:hover:border-0 hover:bg-gradient-to-tr from-[#57ddff] to-[#c058f3] dark:p-[0.1px] flex items-center justify-center"
+            className="h-[25px] w-[25px] p-[0.5px] rounded-full mx-2 bg-[#d9e1ea] dark:bg-transparent dark:border-[#475c68] dark:border-2 dark:hover:border-0 hover:bg-gradient-to-tr from-[#57ddff] to-[#c058f3] dark:p-[0.1px] flex items-center justify-center"
           >
             <div
               className={`h-[90%] w-[90%] bg-white dark:bg-[#25273c] rounded-full flex items-center justify-center cursor-pointer ${task.completed ? 'bg-gradient-to-tr from-[#57ddff] to-[#c058f3] ' : ''} `}
@@ -48,9 +48,9 @@ const TodoListItems: React.FC<TodoListItemsProps> = ({ todoList, setTodoList, de
           </div>
 
           {/*Todo list items text */}
-          <div className={`w-10/12 ml-2 `}>
+          <div className={`w-9/12 ml-2 `}>
             <p
-              className={`w-max text-wrap text-left cursor-pointer ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
+              className={`w-fit text-wrap text-left cursor-pointer ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
               onClick={() => markComplete(task.id)}
             >
               {task.newTodo}
