@@ -60,7 +60,7 @@ const TodoList: React.FC<TodoListProps> = ({ currentTab, todoList, setTodoList, 
         }
       </div>
       <span className='flex justify-between p-4 h-10 bg-white dark:bg-[#25273c] align-middle items-center rounded-b-md' >
-        <p className="text-[#9394a5] hover:text-black dark:text-[#8799a8] ">{activeItems} item{activeItems === 1 ? '' : 's'} left</p>
+        <p className="text-[#9394a5]  dark:text-[#8799a8] ">{activeItems} item{activeItems === 1 ? '' : 's'} left</p>
         <div className="gap-7 hidden md:flex font-bold">
           {children}
         </div>

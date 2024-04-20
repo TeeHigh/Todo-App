@@ -36,6 +36,8 @@ const CompletedListItems: FC<CompletedListItemsProps> = ({ todoList, setTodoList
           :
           todoList.filter((item) => item.completed).map((task) => (
             <div key={task.id} className="flex px-2 pr-4 py-4 dark:bg-[#25273c] lg:py-5 border-b-2 dark:border-b-slate-600 cursor-default items-center">
+              
+              {/* Check button */}
               <div className="h-6 w-6 p-[0.5px] rounded-full mx-2 bg-[#d9e1ea] dark:bg-transparent dark:border-[#475c68] dark:border-2 dark:hover:border-0 hover:bg-gradient-to-tr from-[#57ddff] to-[#c058f3] dark:p-[0.1px] flex items-center justify-center">
                 <div
                   className={`h-[90%] w-[90%] bg-white dark:bg-[#25273c] rounded-full flex items-center justify-center cursor-pointer ${task.completed ? 'bg-gradient-to-tr from-[#57ddff] to-[#c058f3] ' : ''} `}
@@ -48,16 +50,18 @@ const CompletedListItems: FC<CompletedListItemsProps> = ({ todoList, setTodoList
                   }
                 </div>
               </div>
-              
+
               {/*Todo list items text */}
-              <div className={`w-10/12 ml-2 `}>
+              <div className={`w-9/12 ml-2 `}>
                 <p
-                  className={`w-max text-wrap text-left cursor-pointer ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
+                  className={`w-fit text-wrap text-left cursor-pointer ${task.completed ? 'line-through text-[#d2d3db] dark:text-[#9394a5]' : 'dark:text-[#e4e5f1]'}`}
                   onClick={() => markComplete(task.id)}
                 >
                   {task.newTodo}
                 </p>
               </div>
+
+              {/*Delete Icon */}
               <div className="cursor-pointer ml-auto h-5 w-5" onClick={() => deleteTodoItem(task.id)}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
