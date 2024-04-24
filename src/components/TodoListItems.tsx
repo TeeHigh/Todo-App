@@ -33,10 +33,10 @@ const TodoListItems: React.FC<TodoListItemsProps> = ({ todoList, setTodoList, de
 
           {/* Check button */}
           <div 
-            className="h-[25px] w-[25px] p-[0.5px] rounded-full mx-2 bg-[#d9e1ea] dark:bg-transparent dark:border-[#475c68] dark:border-2 dark:hover:border-0 hover:bg-gradient-to-tr from-[#57ddff] to-[#c058f3] dark:p-[0.1px] flex items-center justify-center"
+            className={`h-[25px] w-[25px] p-[0.5px] rounded-full mx-2 bg-[#d9e1ea] dark:bg-transparent dark:border-[#475c68] dark:border-2 dark:hover:border-0 hover:bg-gradient-to-tr from-[#57ddff] to-[#c058f3] dark:p-[0.1px] flex items-center justify-center ${task.completed ? 'bg-gradient-to-tr from-[#57ddff] to-[#c058f3]' : ''}`}
           >
             <div
-              className={`h-[90%] w-[90%] bg-white dark:bg-[#25273c] rounded-full flex items-center justify-center cursor-pointer ${task.completed ? 'bg-gradient-to-tr from-[#57ddff] to-[#c058f3] ' : ''} `}
+              className={`h-[90%] w-[90%] bg-white dark:bg-[#25273c] rounded-full flex items-center justify-center cursor-pointer ${task.completed ? 'bg-gradient-to-tr from-[#57ddff] to-[#c058f3]' : ''} `}
               onClick={() => markComplete(task.id)}
             >
               {task.completed === true &&
