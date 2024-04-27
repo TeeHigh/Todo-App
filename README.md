@@ -1,6 +1,8 @@
 # Todo App
 Todo web application built with React, Vite, Typescript, Tailwind
 
+Live Link: [https://todo-app-puce-omega-71.vercel.app](https://todo-app-puce-omega-71.vercel.app)
+
 ## Table of Contents
 
 - [About the Project](#about-the-project)
@@ -31,7 +33,6 @@ A brief description of your project, its purpose, and its main features.
 - Sortable JS (React library)
 
 ## Getting Started
-Live Link: [Live website](https://todo-app-puce-omega-71.vercel.app)
 
 Instructions on setting up and installing your project. Explain how to get a development environment running.
 
