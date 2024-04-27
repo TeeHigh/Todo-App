@@ -23,7 +23,7 @@ Live Link: [https://todo-app-puce-omega-71.vercel.app](https://todo-app-puce-ome
 
 [Project design for mobile](./src/design/mobile-design-light.jpg)
 
-A brief description of your project, its purpose, and its main features.
+A Todo App project by [Frontend Mentor](https://www.frontendmentor.io/). It helps with planning, organization and tracking of tasks. 
 
 ### Built With
 
@@ -35,18 +35,25 @@ A brief description of your project, its purpose, and its main features.
 
 ## Getting Started
 
-Instructions on setting up and installing your project. Explain how to get a development environment running.
+Instructions on setting up and installing your project. Explain how to get a development environment running. 
 
 ### Prerequisites
 
-- List any software or tools users need to have before they can use your project.
+- There are no elaborate prerequisites to use the web app, a proper functioning browser and internet connection is all you need.
 
 ### Installation
 
-1. Step-by-step instructions on how to install your project.
-2. Any additional setup required.
+No installation required. Click link to visit live web app 👉 [https://todo-app-puce-omega-71.vercel.app](https://todo-app-puce-omega-71.vercel.app)
 
 ## Usage
+
+Listed below are some of the feature of the app:
+
+- Adding new items to 'todo' list.
+- Marking items 'complete'.
+- Light mode and Dark mode theme.
+- Sorting of task items into 'All', 'Active' and 'Completed' for easier tracking.
+
 
 Instructions and examples for usage. Include screenshots or code snippets where appropriate.
 
