@@ -20,6 +20,7 @@ Live Link: [https://todo-app-puce-omega-71.vercel.app](https://todo-app-puce-ome
 ## About The Project
 
 [Project design for desktop](./src/design/desktop-preview.jpg)
+
 [Project design for mobile](./src/design/mobile-design-light.jpg)
 
 A brief description of your project, its purpose, and its main features.
