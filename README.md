@@ -52,7 +52,7 @@ Listed below are some of the feature of the app:
 - Adding new items to 'todo' list.
 - Marking items 'complete'.
 - Light mode and Dark mode theme.
-- Sorting of task items into 'All', 'Active' and 'Completed' for easier tracking.
+- Sorting of task items into `All`, `Active` and `Completed` for easier tracking.
 
 
 Instructions and examples for usage. Include screenshots or code snippets where appropriate.
